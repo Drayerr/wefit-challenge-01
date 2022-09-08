@@ -1,4 +1,4 @@
-$(document).ready(function() {
+$(document).ready(function () {
   // Transpondo itens do header-menu para horizontal
   $('.btn-group-vertical').removeClass('btn-group-vertical')
 
@@ -11,18 +11,20 @@ $(document).ready(function() {
   // Reorganização dos cards
   // $(".col-lg-3 .card-title:contains('Animais')").insertAfter('.row .col-lg-12')
 
-  //TODO
   // Substituindo classes do botão "Go somewhere" no card de "Animais"
-  // $(".container .row .col-lg-3 .card-title:contains('Animais')")
-  // $(".container .row .col-lg-3  a").remove()
+  $(".col-lg-3 .card-title:contains('Animais')")
+    .closest('.card-body')
+    .find('.btn-primary')
+    .toggleClass(['btn-primary', 'btn-success'])
 
   // Tirando a class active do primeiro item
-  $(".container .col-lg-4 .list-group .list-group-item:contains('Primeiro item')").removeClass('active')
+  $(".container .col-lg-4 .list-group .list-group-item:contains('Primeiro item')")
+    .removeClass('active')
 
   // Adicionando quarto e quinto item no final da lista
   $('.container .col-lg-4 .list-group')
-  .append([
-    '<li class="list-group-item active">Quarto item</li>',
-    '<li class="list-group-item">Quinto item</li>'
-  ])
+    .append([
+      '<li class="list-group-item active">Quarto item</li>',
+      '<li class="list-group-item">Quinto item</li>'
+    ])
 })
