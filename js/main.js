@@ -7,9 +7,40 @@ $(document).ready(function () {
   // Substituindo classe do botão "Learn more"
   $('.jumbotron .btn').toggleClass(['btn-primary', 'btn-success'])
 
-  //TODO
-  // Reorganização dos cards
-  // $(".col-lg-3 .card-title:contains('Animais')").insertAfter('.row .col-lg-12')
+
+  // Criando classe cards para referenciar
+  $(".col-lg-3 .card-title:contains('Animais')")
+    .closest('.row')
+    .addClass('cards')
+
+  // Criando divs auxiliares para substituição das tags
+  $('.container .cards')
+    .append([
+      '<div class="auxiliar1"></div>',
+      '<div class="auxiliar2"></div>',
+      '<div class="auxiliar3"></div>',
+      '<div class="auxiliar4"></div>'
+    ])
+
+  // Adicionando classes para referência
+  $(".col-lg-3 .card-title:contains('Animais')")
+    .closest('.col-lg-3')
+    .addClass('animais')
+  $(".col-lg-3 .card-title:contains('Tecnologia')")
+    .closest('.col-lg-3')
+    .addClass('tecnologia')
+  $(".col-lg-3 .card-title:contains('Pessoas')")
+    .closest('.col-lg-3')
+    .addClass('pessoas')
+  $(".col-lg-3 .card-title:contains('Natureza')")
+    .closest('.col-lg-3')
+    .addClass('natureza')
+
+  // Alterando a ordem de exibição dos cards
+  $('.container .row').find('.auxiliar1').replaceWith($('.container .row').find('.natureza'))
+  $('.container .row').find('.auxiliar2').replaceWith($('.container .row').find('.animais'))
+  $('.container .row').find('.auxiliar3').replaceWith($('.container .row').find('.pessoas'))
+  $('.container .row').find('.auxiliar4').replaceWith($('.container .row').find('.tecnologia'))
 
   // Substituindo classes do botão "Go somewhere" no card de "Animais"
   $(".col-lg-3 .card-title:contains('Animais')")
